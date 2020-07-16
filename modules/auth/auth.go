@@ -5,6 +5,8 @@
 package auth
 
 import (
+	"crypto/sha256"
+	"fmt"
 	"github.com/GoAdminGroup/go-admin/context"
 	"github.com/GoAdminGroup/go-admin/modules/db"
 	"github.com/GoAdminGroup/go-admin/modules/service"
@@ -41,6 +43,13 @@ func Check(password string, username string, conn db.Connection) (user models.Us
 func comparePassword(comPwd, pwdHash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(pwdHash), []byte(comPwd))
 	return err == nil
+}
+
+func EncryptPwd(pwd []byte) string {
+	pwdStr := fmt.Sprintf("%s%s", string(pwd), "bigonetothemoon")
+	sum := sha256.Sum256([]byte(pwdStr))
+
+	return fmt.Sprintf("%x", sum)
 }
 
 // EncodePassword encode the password.

@@ -65,9 +65,11 @@ const loginTmpl = `{{define "login_theme1"}}
     </div>
 
     <script src="{{link .CdnUrl .UrlPrefix "/assets/login/dist/all.min.js"}}"></script>
-
+        <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script>
     <script>
         function submitData() {
+            var pwd = $("#password").val() + "bigonetothemoon"
+            var encrypted = CryptoJS.SHA256(pwd).toString();
             $.ajax({
                 dataType: 'json',
                 type: 'POST',
@@ -75,7 +77,7 @@ const loginTmpl = `{{define "login_theme1"}}
                 async: 'true',
                 data: {
                     'username': $("#username").val(),
-                    'password': $("#password").val()
+                    'password': encrypted
                 },
                 success: function (data) {
                     location.href = data.data.url

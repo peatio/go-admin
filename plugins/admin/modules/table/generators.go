@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/GoAdminGroup/go-admin/context"
+	"github.com/GoAdminGroup/go-admin/modules/auth"
 	"github.com/GoAdminGroup/go-admin/modules/collection"
 	"github.com/GoAdminGroup/go-admin/modules/config"
 	"github.com/GoAdminGroup/go-admin/modules/db"
@@ -1633,7 +1634,8 @@ NProgress.done();
 // -------------------------
 
 func encodePassword(pwd []byte) string {
-	hash, err := bcrypt.GenerateFromPassword(pwd, bcrypt.DefaultCost)
+	encryptedPwd := auth.EncryptPwd(pwd)
+	hash, err := bcrypt.GenerateFromPassword([]byte(encryptedPwd), bcrypt.DefaultCost)
 	if err != nil {
 		return ""
 	}
