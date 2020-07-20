@@ -78,12 +78,17 @@ var en = LangSet{
 
 	"detail": "Detail",
 
-	"admin":     "Admin",
-	"users":     "Users",
-	"roles":     "Roles",
-	"menu":      "Menu",
-	"dashboard": "Dashboard",
-	"home":      "Home",
+	"admin":             "Admin",
+	"users":             "Users",
+	"roles":             "Roles",
+	"menu":              "Menu",
+	"dashboard":         "Dashboard",
+	"userlist":          "User Manage",
+	"agencylist":        "Agency Manage",
+	"payoutsstat":       "Payouts Stats",
+	"agencypayoutsstat": "Agency Payouts Stats",
+	"payoutsdetail":     "Payouts Detail",
+	"home":              "Home",
 
 	"second":  "second",
 	"seconds": "seconds",
