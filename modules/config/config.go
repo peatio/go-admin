@@ -696,7 +696,7 @@ func (c *Config) Update(m map[string]string) error {
 	if m["app_id"] != "" {
 		c.AppID = m["app_id"]
 	}
-	c.Language = m["language"]
+	// c.Language = m["language"]
 	c.Domain = m["domain"]
 	c.Theme = m["theme"]
 	c.Title = m["title"]

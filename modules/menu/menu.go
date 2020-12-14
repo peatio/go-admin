@@ -205,7 +205,7 @@ func GetGlobalMenu(user models.UserModel, conn db.Connection, pluginNames ...str
 		if menus[i]["type"].(int64) == 1 {
 			title = language.Get(menus[i]["title"].(string))
 		} else {
-			title = menus[i]["title"].(string)
+			title = language.Get(menus[i]["title"].(string))
 		}
 
 		menuOption = append(menuOption, map[string]string{
@@ -238,7 +238,7 @@ func constructMenuTree(menus []map[string]interface{}, parentID int64) []Item {
 			if menus[j]["type"].(int64) == 1 {
 				title = language.Get(menus[j]["title"].(string))
 			} else {
-				title = menus[j]["title"].(string)
+				title = language.Get(menus[j]["title"].(string))
 			}
 
 			header, _ := menus[j]["header"].(string)
@@ -248,7 +248,7 @@ func constructMenuTree(menus []map[string]interface{}, parentID int64) []Item {
 				ID:           strconv.FormatInt(menus[j]["id"].(int64), 10),
 				Url:          menus[j]["uri"].(string),
 				Icon:         menus[j]["icon"].(string),
-				Header:       header,
+				Header:       language.Get(header),
 				Active:       "",
 				ChildrenList: constructMenuTree(menus, menus[j]["id"].(int64)),
 			}
