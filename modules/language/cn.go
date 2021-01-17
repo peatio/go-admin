@@ -113,6 +113,7 @@ var cn = LangSet{
 	"exit fullscreen":                               "退出全屏",
 	"wrong captcha":                                 "错误的验证码",
 	"modify success":                                "修改成功",
+	"invalid username or password":                  "用户名或密码错误",
 
 	"not found":      "找不到记录",
 	"internal error": "系统内部错误",

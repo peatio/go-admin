@@ -49,6 +49,9 @@ func (h *Handler) Auth(ctx *context.Context) {
 			return
 		}
 		user, ok = auth.Check(password, username, h.conn)
+		if !ok {
+			errMsg = "invalid username or password"
+		}
 	} else {
 		user, ok, errMsg = auth.GetService(s).P(ctx)
 	}
