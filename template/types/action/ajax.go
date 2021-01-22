@@ -186,4 +186,6 @@ func (ajax *AjaxAction) Js() template.JS {
             		});`)
 }
 
-func (ajax *AjaxAction) BtnAttribute() template.HTML { return template.HTML(`href="javascript:;"`) }
+func (ajax *AjaxAction) BtnAttribute() template.HTML {
+	return template.HTML(`href="javascript:;" data-id="{{.Id}}"`)
+}
